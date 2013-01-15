@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nullspark", "nullspark.vcproj", "{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nullsparkExampleWin32", "..\nullsparkExampleWin32\nullsparkExampleWin32.vcproj", "{A058C946-C31B-47CC-860A-076F462D919C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB} = {A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}.Debug|Win32.Build.0 = Debug|Win32
+		{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}.Release|Win32.ActiveCfg = Release|Win32
+		{A6D1019B-31F2-4D95-9575-7E63B9C1B9AB}.Release|Win32.Build.0 = Release|Win32
+		{A058C946-C31B-47CC-860A-076F462D919C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A058C946-C31B-47CC-860A-076F462D919C}.Debug|Win32.Build.0 = Debug|Win32
+		{A058C946-C31B-47CC-860A-076F462D919C}.Release|Win32.ActiveCfg = Release|Win32
+		{A058C946-C31B-47CC-860A-076F462D919C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
