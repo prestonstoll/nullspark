@@ -3,8 +3,7 @@
 #ifndef NULLSPARK_H__
 #define NULLSPARK_H__
 
-enum	NS_RETURNCODE { NS_FAIL = -1, NS_OK, NS_FALSE, NS_RETURNCODE_COUNT };
-enum	NS_PIXEL_LAYOUT { NS_PIXEL_RGBA_8, NS_PIXEL_LAYOUT_COUNT };
+#include "nsUtil.h"
 
 struct nsTriangle;
 

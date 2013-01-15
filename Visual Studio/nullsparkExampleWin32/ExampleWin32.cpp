@@ -253,13 +253,13 @@ int ImportUserSelectFBX( nsTriangle *** pTriangleData, unsigned int  * pTriangle
 					ac = triangle.vertices[2]->point - triangle.vertices[0]->point;
 					triangle.normal = (vec3 *) malloc(sizeof(vec3));
 					*triangle.normal = cross(ab, ac);
-					normalize(*triangle.normal);
+					*triangle.normal = normalize(*triangle.normal);
 
 					triangle.pAABB = (nsAABB *) malloc(sizeof(nsAABB));
 					*triangle.pAABB = ComputeAABB(&triangle);
 
-					*pTriangleData[i] = (nsTriangle *) malloc(sizeof(nsTriangle));
-					**pTriangleData[i] = triangle;
+					(*pTriangleData)[i] = (nsTriangle *) malloc(sizeof(nsTriangle));
+					*((*pTriangleData)[i]) = triangle;
 				}
 
 				lImporter->Destroy();

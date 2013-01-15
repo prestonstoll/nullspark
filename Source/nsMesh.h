@@ -40,7 +40,7 @@ protected:
 public:
 									nsMesh( void );
 	int								Destroy( void );
-	int								BuildFromTriangles( nsTriangle ** pTriangleData, const unsigned int pTriangleCount );
+	NS_RETURNCODE					BuildFromTriangles( nsTriangle ** pTriangleData, const unsigned int pTriangleCount );
 	int								BuildNode(nsOctreeNode * node, nsAABB * nAABB, unsigned int * TriangleData, unsigned int TriangleDataCount, unsigned int level);
 	int								BuildSubNode(nsOctreeNode * node, nsAABB * nAABB, unsigned int * TriangleData, unsigned int TriangleDataCount, unsigned int level);
 	void							WriteToFile(char * fileName);

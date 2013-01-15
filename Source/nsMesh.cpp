@@ -11,6 +11,8 @@ nsMesh::nsMesh( void )
 
 	TopGridSize = 1 << (TopBuildLevel + 1);
 	SubGridSize = 1 << (SubBuildLevel + 1);
+
+	TextureData = NULL;
 }
 
 int	nsMesh::Destroy( void )
@@ -18,7 +20,7 @@ int	nsMesh::Destroy( void )
 	return 0;
 }
 
-int	nsMesh::BuildFromTriangles( nsTriangle ** pTriangleData, const unsigned int pTriangleCount )
+NS_RETURNCODE nsMesh::BuildFromTriangles( nsTriangle ** pTriangleData, const unsigned int pTriangleCount )
 {
 	Root = (nsOctreeNode *) malloc(sizeof(nsOctreeNode));
 	Root->type = OCTREE_NODE;
@@ -56,7 +58,7 @@ int	nsMesh::BuildFromTriangles( nsTriangle ** pTriangleData, const unsigned int 
 	}
 
 	WriteToFile("C:\\testOutput.nsoctree");
-	return 0;
+	return NS_OK;
 }
 
 int nsMesh::BuildNode(nsOctreeNode * node, nsAABB * nAABB, unsigned int * TriangleData, unsigned int TriangleDataCount, unsigned int level)
@@ -170,7 +172,7 @@ int nsMesh::BuildSubNode(nsOctreeNode * node, nsAABB * nAABB, unsigned int * Tri
 				{
 					((nsOctreeLeafNode *)node->Children[c])->AvgNormal = ((nsOctreeLeafNode *)node->Children[c])->AvgNormal + *Triangles[triangles[t]]->normal * ratio;
 				}
-				normalize(((nsOctreeLeafNode *)node->Children[c])->AvgNormal);
+				((nsOctreeLeafNode *)node->Children[c])->AvgNormal = normalize(((nsOctreeLeafNode *)node->Children[c])->AvgNormal);
 
 				
 				((nsOctreeLeafNode *)node->Children[c])->AvgColor.x = 0.0f;

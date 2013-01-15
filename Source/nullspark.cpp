@@ -2,12 +2,14 @@
 #include "nullspark.h"
 #include "nsUtil.h"
 #include "nsResource.h"
+#include "nsMesh.h"
 #include <map>
 #include <boost/thread/thread.hpp>
 
 namespace
 {
-	std::map<unsigned int, nsResource>			ResourceMap;
+	std::map<unsigned int, nsResource*>			ResourceMap;
+	unsigned int								ResourceCounter;
 
 	// Output Format
 	NS_PIXEL_LAYOUT								PixelLayout;
@@ -22,13 +24,23 @@ namespace
 // nsInit - Initialize NullSpark
 NS_DLL_EXPORT NS_RETURNCODE	nsInit( void )
 {
+	ResourceCounter = 0;
 	return NS_OK;
 }
 
 // nsLoadTriangleData - Loads triangle data into the system as a mesh
 NS_DLL_EXPORT int nsLoadTriangleData( nsTriangle ** pTriangleData, const unsigned int pTriangleCount )
 {
-	return 0;
+	unsigned int ResourceID = ResourceCounter++;
+	nsMesh * newMesh = new nsMesh();
+	ResourceMap.insert( std::pair<int,nsResource*>(ResourceID,newMesh) );
+
+	if(newMesh->BuildFromTriangles( pTriangleData, pTriangleCount ) == NS_OK) {
+		return ResourceID;
+	}
+	else {
+		return NS_FAIL;
+	}
 }
 
 // nsLoadOctreeFile - Loads octree data into the system as a mesh
